@@ -1,17 +1,17 @@
-// Цю програму створив Круглєня Олександр Сергійович з групи К-11
+// Р¦СЋ РїСЂРѕРіСЂР°РјСѓ СЃС‚РІРѕСЂРёРІ РљСЂСѓРіР»С”РЅСЏ РћР»РµРєСЃР°РЅРґСЂ РЎРµСЂРіС–Р№РѕРІРёС‡ Р· РіСЂСѓРїРё Рљ-11
 #include <iostream>
 #include "GreenHouse.h"
 #include <cmath>
 
 using namespace std;
 
-bool* State = new bool; // визначає стан моделі FALSE - зупинено, TRUE - працює
-int* Windows = new int; //загальне кількість вікон
-int* OpenWindows = new int; // число відкритих вікон в моделі
-int* Heaters = new int; //загальне число обігрівачів в моделі
-int* ActiveHeaters = new int; // число активных нагревателей
-double* Humidity = new double; //поточна вологість 
-double* Temperature = new double; //поточна температура
+bool* State = new bool; // РІРёР·РЅР°С‡Р°С” СЃС‚Р°РЅ РјРѕРґРµР»С– FALSE - Р·СѓРїРёРЅРµРЅРѕ, TRUE - РїСЂР°С†СЋС”
+int* Windows = new int; //Р·Р°РіР°Р»СЊРЅРµ РєС–Р»СЊРєС–СЃС‚СЊ РІС–РєРѕРЅ
+int* OpenWindows = new int; // С‡РёСЃР»Рѕ РІС–РґРєСЂРёС‚РёС… РІС–РєРѕРЅ РІ РјРѕРґРµР»С–
+int* Heaters = new int; //Р·Р°РіР°Р»СЊРЅРµ С‡РёСЃР»Рѕ РѕР±С–РіСЂС–РІР°С‡С–РІ РІ РјРѕРґРµР»С–
+int* ActiveHeaters = new int; // С‡РёСЃР»Рѕ Р°РєС‚РёРІРЅС‹С… РЅР°РіСЂРµРІР°С‚РµР»РµР№
+double* Humidity = new double; //РїРѕС‚РѕС‡РЅР° РІРѕР»РѕРіС–СЃС‚СЊ 
+double* Temperature = new double; //РїРѕС‚РѕС‡РЅР° С‚РµРјРїРµСЂР°С‚СѓСЂР°
 
 Greenhouse::Greenhouse()
 {
@@ -63,7 +63,7 @@ double Greenhouse::getTemperature()
 bool Greenhouse::openWindow()
 {
 	bool success;
-	if (*OpenWindows < *Windows) //якщо число відкритих вікон менше загального числа вікон, то відчиняємо вікно і повертаємо TRUE
+	if (*OpenWindows < *Windows) //СЏРєС‰Рѕ С‡РёСЃР»Рѕ РІС–РґРєСЂРёС‚РёС… РІС–РєРѕРЅ РјРµРЅС€Рµ Р·Р°РіР°Р»СЊРЅРѕРіРѕ С‡РёСЃР»Р° РІС–РєРѕРЅ, С‚Рѕ РІС–РґС‡РёРЅСЏС”РјРѕ РІС–РєРЅРѕ С– РїРѕРІРµСЂС‚Р°С”РјРѕ TRUE
 	{
 		*OpenWindows = *OpenWindows + 1;
 		success = true;
@@ -75,7 +75,7 @@ bool Greenhouse::openWindow()
 bool Greenhouse::closeWindow()
 {
 	bool success;
-	if (*OpenWindows > 0)  // якщо число відкритих вікон більше нуля, то зачиняємо вікно і повертаємо TRUE
+	if (*OpenWindows > 0)  // СЏРєС‰Рѕ С‡РёСЃР»Рѕ РІС–РґРєСЂРёС‚РёС… РІС–РєРѕРЅ Р±С–Р»СЊС€Рµ РЅСѓР»СЏ, С‚Рѕ Р·Р°С‡РёРЅСЏС”РјРѕ РІС–РєРЅРѕ С– РїРѕРІРµСЂС‚Р°С”РјРѕ TRUE
 	{
 		*OpenWindows = *OpenWindows - 1;
 		success = true;
@@ -87,7 +87,7 @@ bool Greenhouse::closeWindow()
 bool Greenhouse::turnOnHeater()
 {
 	bool success;
-	if (*ActiveHeaters < *Heaters)  // якщо число вімкнених обігрівачів менше загального числа обігрівачів, то вмикаємо обігрівач і повертаємо TRUE
+	if (*ActiveHeaters < *Heaters)  // СЏРєС‰Рѕ С‡РёСЃР»Рѕ РІС–РјРєРЅРµРЅРёС… РѕР±С–РіСЂС–РІР°С‡С–РІ РјРµРЅС€Рµ Р·Р°РіР°Р»СЊРЅРѕРіРѕ С‡РёСЃР»Р° РѕР±С–РіСЂС–РІР°С‡С–РІ, С‚Рѕ РІРјРёРєР°С”РјРѕ РѕР±С–РіСЂС–РІР°С‡ С– РїРѕРІРµСЂС‚Р°С”РјРѕ TRUE
 	{
 		*ActiveHeaters = *ActiveHeaters + 1;
 		success = true;
@@ -99,7 +99,7 @@ bool Greenhouse::turnOnHeater()
 bool Greenhouse::turnOffHeater()
 {
 	bool success;
-	if (*ActiveHeaters > 0)  // якщо число вімкнених обігрівачів більше нуля, то вимикаємо і повертаємо TRUЕ
+	if (*ActiveHeaters > 0)  // СЏРєС‰Рѕ С‡РёСЃР»Рѕ РІС–РјРєРЅРµРЅРёС… РѕР±С–РіСЂС–РІР°С‡С–РІ Р±С–Р»СЊС€Рµ РЅСѓР»СЏ, С‚Рѕ РІРёРјРёРєР°С”РјРѕ С– РїРѕРІРµСЂС‚Р°С”РјРѕ TRUР•
 	{
 		*ActiveHeaters = *ActiveHeaters - 1;
 		success = true;
